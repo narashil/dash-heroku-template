@@ -108,6 +108,7 @@ cat_columns = ['sex','region','educ_grp']
 gss_dash_df = gss_clean[['satjob','relationship','male_breadwinner','men_bettersuited','child_suffer','men_overwork','sex','region','education']]
 gss_dash_df['educ_grp'] = pd.cut(gss_dash_df.education,4).astype('str')
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 
 app.layout = html.Div(
     [
