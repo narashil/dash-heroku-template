@@ -4,7 +4,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly.figure_factory as ff
 from dash.dependencies import Input, Output
-from jupyter_dash import JupyterDash
+import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.io as pio
@@ -107,7 +107,7 @@ cat_columns = ['sex','region','educ_grp']
 
 gss_dash_df = gss_clean[['satjob','relationship','male_breadwinner','men_bettersuited','child_suffer','men_overwork','sex','region','education']]
 gss_dash_df['educ_grp'] = pd.cut(gss_dash_df.education,4).astype('str')
-app = JupyterDash(__name__, external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 app.layout = html.Div(
     [
